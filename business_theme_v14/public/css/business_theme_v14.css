@@ -3,7 +3,7 @@
 
 /* Scrollbar width - makes scrollbars thinner (6px instead of default ~15px) */
 *::-webkit-scrollbar {
-    width: 7px;
+    width: 6px;
 }
 
 /* Scrollbar track (background behind the thumb) - uses CSS variable for theming */
