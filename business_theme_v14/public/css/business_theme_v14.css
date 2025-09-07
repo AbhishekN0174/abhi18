@@ -1133,6 +1133,15 @@ header .form-control:focus {
     text-align: center;        /* text alignment */
 }
 
+/* ==================== FIX: REDUCE ce-block__content SIZE ==================== */
+.ce-block__content {
+    max-width: 600px !important;  /* shrink width */
+    margin: 0 auto !important;    /* keep centered */
+    padding: 8px !important;      /* reduce inner spacing */
+    min-height: 50px !important;  /* shrink height */
+}
+
+
 
 
 
