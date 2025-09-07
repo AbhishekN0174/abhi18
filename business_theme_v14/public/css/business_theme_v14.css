@@ -1,899 +1,1130 @@
-==================== BROWSER SCROLLBAR CUSTOMIZATION ==================== */
-/* Custom scrollbar styling for Chrome, Edge, and Safari browsers */
 
-/* Scrollbar width - makes scrollbars thinner (6px instead of default ~15px) */
-*::-webkit-scrollbar {
-    width: 7px;
-}
+/* ==================== ITCHAMPS DASHBOARD THEME ==================== */
+/* New CSS file for recreating the blue dashboard design */
+/* Preserves ITChamps branding while achieving Image 1 layout */
 
-/* Scrollbar track (background behind the thumb) - uses CSS variable for theming */
-*::-webkit-scrollbar-track {
-    background: var(--scroll-bg); /* Defined in theme variables below */
-}
+/* ==================== NAVBAR STYLING ==================== */
+/* Top navigation bar with ITChamps logo */
 
-/* Scrollbar thumb (the draggable part) - rounded with theme colors */
-*::-webkit-scrollbar-thumb {
-    background-color: var(--scroll-color); /* Uses theme-specific color */
-    border-radius: 20px; /* Makes scrollbar thumb rounded */
-}
-
-/* Firefox scrollbar styling - thinner scrollbar with theme colors */
-* {
-    scrollbar-width: thin; /* Makes scrollbar thinner in Firefox */
-    scrollbar-color: var(--scroll-color) var(--scroll-bg); /* thumb color, track color */
-}
-
-/* ==================== FORM INPUT STYLING ==================== */
-/* Consistent border styling for various input types */
-
-/* Awesomplete autocomplete input borders */
-.awesomplete .input-with-feedback {
-    border: 1px solid var(--border-color); /* Theme-aware border color */
-}
-
-/* General form control borders (inputs, textareas, selects) */
-.form-control {
-    border: 1px solid var(--border-color); /* Consistent with theme */
-}
-
-/* Search bar input background */
-.search-bar .awesomplete input {
-    background-color: var(--bg-color); /* Uses theme background color */
-}
-
-/* ==================== MODAL AND DIALOG STYLING ==================== */
-
-/* Modal backdrop overlay - dark blue background when modals open */
-.modal-backdrop{
-    background-color: #2c436b !important; /* Fixed dark blue color */
-}
-
-/* ==================== WIDGET AND CONTENT STYLING ==================== */
-
-/* Widget title text size - uses CSS variable for consistent sizing */
-.widget .widget-head .widget-title {
-    font-size: var(--text-base); /* Defined in theme variables */
-}
-
-/* Section headings throughout the application - consistent weight and size */
-.comment-box .comment-input-header, 
-.form-dashboard-section .section-head, 
-.form-section .section-head, 
-.head-title {
-    font-size: var(--text-base); /* Consistent with widget titles */
-    font-weight: 600; /* Semi-bold text for emphasis */
-}
-
-/* Comment box editor border */
-.comment-box .comment-input-container .ql-editor {
-    border: 1px solid var(--border-color); /* Theme-consistent border */
-}
-
-/* Duration picker styling */
-.duration-picker .duration-input {
-    background-color: var(--bg-color); /* Theme background */
-    border: 1px solid var(--border-color); /* Theme border */
-}
-
-/* Form label text weight - medium weight for readability */
-.control-label {
-    font-weight: 500; /* Medium weight between normal (400) and semi-bold (600) */
-}
-
-/* ==================== THEME VARIABLES ==================== */
-/* CSS variables that change based on dark/light theme selection */
-
-/* DARK THEME VARIABLES - Applied when [data-theme="dark"] is set */
-[data-theme="dark"] {
-    --bg-color: var(--gray-900);        /* Very dark gray background */
-    --disabled-control-bg: var(--gray-900); /* Same as bg for disabled inputs */
-    --border-color: #1c2126;            /* Dark gray borders */
-    --margin-lg: 15px;                  /* Large margin size */
-    --text-bold: 600;                   /* Bold text weight */
-    --scroll-bg: #161a1f;               /* Dark scrollbar track */
-    --scroll-color: #1c2126;            /* Dark scrollbar thumb */
-}
-
-/* LIGHT THEME VARIABLES - Applied when [data-theme="light"] is set */
-[data-theme="light"] {
-    --bg-color: #FFFF;                  /* White background (note: should be #FFFFFF) */
-    --text-bold: 600;                   /* Bold text weight */
-    --control-bg: #fff;                 /* White input backgrounds */
-    --control-bg-on-gray: #d4dcea;      /* Light blue-gray for inputs on gray backgrounds */
-    --disabled-control-bg: #f2f5fa;     /* Very light gray for disabled inputs */
-    --heading-color: #333;              /* Dark gray for headings */
-    --border-color: #e3e8f1;            /* Light gray borders */
-    --avatar-frame-bg: #dde2ea;         /* Light blue-gray for avatar frames */
-    --margin-lg: 15px;                  /* Large margin size */
-    --sidebar-select-color: #d4dcea;    /* Light blue-gray for selected sidebar items */
-    --awesomplete-hover-bg: #d4dcea;    /* Light blue-gray for autocomplete hover */
-    --scroll-bg: #eef1f5;               /* Light gray scrollbar track */
-    --scroll-color: #d9dfe6;            /* Medium gray scrollbar thumb */
-}
-
-/* ==================== GLOBAL COLOR VARIABLES ==================== */
-/* Root CSS variables used throughout the application */
-
-:root {
-    --background: #FFFF;                /* Main background color (should be #FFFFFF) */
-    /* --background-color: [COMMENTED OUT] radial gradient for navbar was here */
-    --primary-color: #000000;           /* Primary accent color - BLACK */
-    --secondary-color: #7574ff;         /* Secondary accent - PURPLE/BLUE */
-    --white-color: #ffffff;             /* Pure white */
-    --black-color: #000000;             /* Pure black */
-    --gray-color: #888;                 /* Medium gray for various elements */
-    
-    /* Layout sizing variables */
-    --page-head-height: 50px;           /* Fixed height for page header */
-    --navbar-height: 50px;              /* Fixed height for navigation bar */
-}
-
-/* ==================== BUTTON STYLING ==================== */
-/* Primary and secondary button appearance and behavior */
-
-/* Remove default button shadows on focus/active states */
-.btn-primary:active,
-.btn-secondary:focus,
-.btn-secondary:active,
-.btn-secondary:focus{
-    box-shadow: none !important; /* Clean button appearance */
-}
-
-/* Primary button styling - black background with white text */
-.btn-primary{
-    color: #ffff !important;                        /* White text (should be #ffffff) */
-    background-color: var(--primary-color) !important; /* Black background */
-    border-radius: 0 !important;                   /* Square corners */
-}
-
-/* PRIMARY BUTTON HOVER - Currently commented out */
-/* .btn-primary:hover{
-    background-color: rgba(255, 120, 10, 0.93) !important; 
-} */
-
-/* ==================== PAGE LAYOUT SIZING ==================== */
-/* Fixed heights for page header elements */
-
-.page-head,
-.page-head .page-head-content{
-    height: var(--page-head-height); /* 50px height */
-}
-
-.page-head,
-.page-head .page-head-content{
-    top: var(--page-head-height); /* Position from top */
-}
-
-/* ==================== NAVIGATION BAR STYLING ==================== */
-/* Top navigation bar appearance and logo handling */
-
-/* Hide the default ERPNext logo */
+/* Hide default ERPNext logo and use ITChamps logo */
 .navbar .app-logo {
-    display: none !important; /* Completely removes default logo */
+    display: none !important;
 }
 
-/* Custom logo replacement - ITChamps logo */
+/* ITChamps logo styling */
 .navbar .navbar-brand {
     background: url("/assets/business_theme_v14/images/itchamps.png") no-repeat left center;
-    background-size: contain; /* Scales logo to fit container */
-    width: 160px;   /* Logo container width */
-    height: 40px;   /* Logo container height */
+    background-size: contain;
+    width: 160px;
+    height: 40px;
 }
 
-/* Navbar background and sizing */
-.navbar{
-    background: var(--background-color) !important; /* Uses background color variable */
-    height: var(--navbar-height); /* 50px height */
+
+/* Navbar background - clean white */
+.navbar,
+.navbar-expand {
+    background: white !important;
+    background-color: white !important;
+    height: 50px;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Navbar expansion background */
-.navbar-expand{
-    background-color: var(--background-color); /* Matches navbar background */
+/* Navbar text colors */
+.navbar .navbar-nav a.nav-link {
+    color: #374151 !important;
+    font-weight: 500;
 }
 
-/* Breadcrumb styling in navbar */
-#navbar-breadcrumbs > li > a::before{
-    content: "\f105";           /* Font Awesome right arrow icon */
-    color: var(--white-color);  /* White arrow color */
+/* Breadcrumbs styling */
+#navbar-breadcrumbs > li > a {
+    color: #6b7280 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
 }
 
-#navbar-breadcrumbs a{
-    color: var(--white-color);  /* White text for breadcrumb links */
+#navbar-breadcrumbs > li > a::before {
+    content: "\f105";
+    color: #6b7280;
 }
 
-/* Search bar in header */
-header .form-control{
-    color: var(--white-color);  /* White text in search input */
+/* Add icons to specific breadcrumb items */
+#navbar-breadcrumbs li a[href*="/app/hr"]::before,
+#navbar-breadcrumbs li a[href*="HR"]::before {
+    content: "👥";
+    font-size: 16px;
+    margin-right: 4px;
 }
 
-header .form-control:focus{
-    border: 0;                  /* Remove border on focus */
+#navbar-breadcrumbs li a[href*="staffing-plan"]::before,
+#navbar-breadcrumbs li a[href*="Staffing Plan"]::before {
+    content: "📋";
+    font-size: 16px;
+    margin-right: 4px;
 }
 
-header .form-control:focus{
-    background-color: var(--white-color) !important; /* White background when focused */
+#navbar-breadcrumbs li a[href*="accounting"]::before,
+#navbar-breadcrumbs li a[href*="Accounting"]::before {
+    content: "💰";
+    font-size: 16px;
+    margin-right: 4px;
+}
+
+#navbar-breadcrumbs li a[href*="/app"]::before,
+#navbar-breadcrumbs li a[href*="Home"]::before {
+    content: "🏠";
+    font-size: 16px;
+    margin-right: 4px;
+}
+
+/* Remove the arrow for items with icons */
+#navbar-breadcrumbs li a[href*="/app/hr"]::after,
+#navbar-breadcrumbs li a[href*="staffing-plan"]::after,
+#navbar-breadcrumbs li a[href*="accounting"]::after,
+#navbar-breadcrumbs li a[href*="/app"]::after {
+    content: none;
+}
+
+/* Search bar styling */
+header .form-control {
+    background-color: #f9fafb !important;
+    border: 1px solid #d1d5db !important;
+    color: #374151 !important;
+    z-index: 10 !important;
+    position: relative !important;
+}
+
+header .form-control:focus {
+    background-color: white !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+    z-index: 15 !important;
+}
+
+/* Fix search dropdown layering */
+.awesomplete {
+    z-index: 20 !important;
+}
+
+.awesomplete > ul {
+    background: white !important;
+    z-index: 25 !important;
+    position: absolute !important;
 }
 
 /* ==================== SIDEBAR STYLING ==================== */
-/* Left sidebar navigation appearance */
+/* Left sidebar with blue gradient and white text modules */
 
-/* Sidebar label text color */
-.layout-side-section .sidebar-label{
-    color: var(--primary-color); /* Black text (matches primary color) */
+/* Main sidebar container - target the actual sidebar structure */
+.layout-side-section,
+.sidebar-section,
+.desk-sidebar {
+    background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%) !important;
+    padding: 20px 15px !important;
+    border-radius: 0 !important;
+    margin-left: 0 !important;
+    min-height: 100vh !important;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1) !important;
+     scrollbar-width: thin !important; /* Firefox - makes scrollbar thinner */
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent !important; /* Firefox - thumb color and track color (transparent removes line) */
 }
 
-/* Sidebar icon colors */
-.sidebar-label svg,
-.layout-side-section .sidebar-label .icon{
-    stroke: var(--primary-color); /* Black stroke color for icons */
-    width: 18px !important;       /* Icon width */
-    height: 18px !important;      /* Icon height */
+/* Target the specific sidebar menu structure from your image */
+.layout-side-section .sidebar-menu,
+.layout-side-section .standard-sidebar,
+.desk-sidebar .standard-sidebar {
+    background: transparent !important;
+    padding: 0 !important;
 }
 
-/* Sidebar button background */
-.list-sidebar-button{
-    background-color: #c8c4c4 !important; /* Light gray background */
+/* PUBLIC header styling */
+.layout-side-section .sidebar-label,
+.sidebar-group-label,
+.standard-sidebar .sidebar-label {
+    color: white !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin: 20px 0 15px 0 !important;
+    padding: 0 5px !important;
+    opacity: 0.9 !important;
 }
 
-/* ==================== INPUT FIELD STYLING ==================== */
-/* Form input appearance and focus states */
-
-/* General input background */
-.form-control{
-    background-color: #f2f2f2 !important; /* Light gray background */
+/* Individual navigation items like Home, Accounting, etc. */
+.layout-side-section .sidebar-menu li,
+.layout-side-section .standard-sidebar li,
+.layout-side-section .sidebar-menu li a,
+.layout-side-section .standard-sidebar li a,
+.standard-sidebar-item {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    margin-bottom: 4px !important;
+    padding: 8px 12px !important;
+    transition: all 0.3s ease !important;
+    color: white !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
 }
 
-/* Input focus state */
-.form-control:focus{
-    border: 1px solid var(--primary-color); /* Black border on focus */
-    background: rgba(255, 160, 10, 0.14) !important; /* Light orange background on focus */
+/* Hover effects for navigation items */
+.layout-side-section .sidebar-menu li:hover,
+.layout-side-section .standard-sidebar li:hover,
+.layout-side-section .sidebar-menu li a:hover,
+.layout-side-section .standard-sidebar li a:hover,
+.standard-sidebar-item:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    transform: translateX(3px) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* Navbar link text color */
-.navbar .navbar-nav a.nav-link{
-    color: var(--white-color); /* White text for navbar links */
+/* Navigation text styling */
+.layout-side-section .sidebar-menu li a,
+.layout-side-section .standard-sidebar li a,
+.layout-side-section a,
+.standard-sidebar-item a,
+.sidebar-menu a {
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+}
+
+/* Navigation icons */
+.layout-side-section .sidebar-menu li .sidebar-item-icon,
+.layout-side-section .standard-sidebar li .icon,
+.layout-side-section svg,
+.sidebar-item-icon,
+.octicon {
+    color: white !important;
+    stroke: white !important;
+    fill: white !important;
+    width: 18px !important;
+    height: 18px !important;
+    margin-right: 8px !important;
+}
+
+/* Active navigation item */
+.layout-side-section .sidebar-menu li.active,
+.layout-side-section .standard-sidebar li.active,
+.layout-side-section .sidebar-menu li.active a,
+.standard-sidebar-item.active {
+    background: white !important;
+    color: #1d4ed8 !important;
+    border-color: white !important;
+    font-weight: 600 !important;
+}
+
+.layout-side-section .sidebar-menu li.active .sidebar-item-icon,
+.layout-side-section .standard-sidebar li.active .icon,
+.layout-side-section .sidebar-menu li.active svg {
+    color: #1d4ed8 !important;
+    stroke: #1d4ed8 !important;
+    fill: #1d4ed8 !important;
+}
+
+/* Fix for nested menu items (like HR submenu) */
+.layout-side-section .sidebar-menu li ul,
+.layout-side-section .standard-sidebar li ul {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 6px !important;
+    margin: 8px 0 0 0 !important;
+    padding: 8px !important;
+}
+
+.layout-side-section .sidebar-menu li ul li,
+.layout-side-section .standard-sidebar li ul li {
+    background: rgba(255, 255, 255, 0.08) !important;
+    margin-bottom: 4px !important;
+    padding: 8px 12px !important;
+}
+
+/* Expand/collapse arrows for submenus */
+.layout-side-section .sidebar-menu .drop-down,
+.layout-side-section .standard-sidebar .drop-down {
+    color: white !important;
+}
+
+/* Remove default styling that might conflict */
+.layout-side-section * {
+    border: none;
+}
+
+.layout-side-section .list-sidebar {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ==================== MAIN CONTENT AREA ==================== */
+/* Dashboard overview and widgets */
+
+/* Main content container */
+.layout-main-section {
+    background: #f8fafc !important;
+    padding: 30px !important;
+    margin-left: 0 !important;
+}
+
+/* Page header */
+.page-head,
+.page-head .page-head-content {
+    background: transparent !important;
+    border-bottom: none !important;
+    padding-bottom: 20px !important;
+}
+
+/* Dashboard title styling */
+.layout-main-section h1,
+.layout-main-section .page-title,
+.head-title {
+    color: #1f2937 !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    margin-bottom: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+/* Dashboard icon */
+.layout-main-section h1::before,
+.page-title::before {
+    content: "📊";
+    font-size: 24px;
+}
+
+/* ==================== WIDGET STYLING ==================== */
+/* Dashboard cards and widgets */
+
+/* All dashboard widgets */
+.layout-main-section .widget,
+.layout-main-section [data-widget-name],
+.dashboard-widget-box {
+    background: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 25px !important;
+    margin-bottom: 25px !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Widget hover effects */
+.layout-main-section .widget:hover,
+.layout-main-section [data-widget-name]:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Widget headers */
+.layout-main-section .widget .widget-head,
+.layout-main-section .widget .widget-title,
+.widget-head h4 {
+    color: #1f2937 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    margin-bottom: 20px !important;
+    border-bottom: 2px solid #f3f4f6 !important;
+    padding-bottom: 15px !important;
+}
+
+/* Widget content text */
+.layout-main-section .widget .widget-body,
+.layout-main-section .widget .widget-body a,
+.layout-main-section .widget p,
+.layout-main-section .widget span {
+    color: #4b5563 !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+}
+
+/* Widget links */
+.layout-main-section .widget .widget-body a {
+    color: #3b82f6 !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: color 0.2s ease !important;
+}
+
+.layout-main-section .widget .widget-body a:hover {
+    color: #1d4ed8 !important;
+    text-decoration: underline !important;
+}
+
+/* Revenue metrics styling */
+.layout-main-section .widget .widget-body .number,
+.dashboard-number {
+    color: #3b82f6 !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    margin: 15px 0 !important;
+    display: block !important;
+}
+
+/* Percentage indicators */
+.percentage-indicator,
+.widget-body .text-success {
+    color: #10b981 !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+}
+
+/* ==================== FORM STYLING ==================== */
+/* Form inputs and controls */
+
+.form-control {
+    background-color: #f9fafb !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    color: #374151 !important;
+    font-size: 14px !important;
+}
+
+.form-control:focus {
+    background-color: white !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Form labels */
+.control-label,
+.form-label {
+    color: #374151 !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    margin-bottom: 8px !important;
+}
+
+/* ==================== BUTTON STYLING ==================== */
+/* Primary and secondary buttons */
+
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+    color: white !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
+}
+
+.btn-secondary {
+    background: white !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-weight: 500 !important;
+    color: #374151 !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-secondary:hover {
+    background: #f9fafb !important;
+    border-color: #9ca3af !important;
+}
+
+/* Remove button focus outlines */
+.btn:focus,
+.btn:active {
+    box-shadow: none !important;
+    outline: none !important;
 }
 
 /* ==================== TABLE STYLING ==================== */
-/* Data table appearance and hover effects */
+/* Data tables and grids */
 
-/* Form grid border */
-.form-grid{
-    border: 1px solid #bbbbbb; /* Gray border around tables */
+.datatable,
+.form-grid {
+    background: white !important;
+    border-radius: 12px !important;
+    border: 1px solid #e5e7eb !important;
+    overflow: hidden !important;
 }
 
-/* Table header background */
-.form-grid .grid-heading-row{
-    background-color: #f4f4f4; /* Light gray header background */
+/* Table headers */
+.datatable .dt-header,
+.form-grid .grid-heading-row {
+    background: #f8fafc !important;
+    color: #374151 !important;
+    font-weight: 600 !important;
+    border-bottom: 2px solid #e5e7eb !important;
 }
 
-/* Table header bottom border */
-.grid-heading-row{
-    border-bottom: 1px solid var(--primary-color); /* Black bottom border */
+/* Table rows */
+.datatable .dt-row:hover,
+.form-grid .grid-row:hover {
+    background: #f0f9ff !important;
 }
 
-/* Table row hover effect */
-.form-grid .grid-row:hover{
-    background: rgba(255, 152, 0, 0.15); /* Light orange background on hover */
+/* ==================== SCROLLBAR STYLING ==================== */
+/* Custom scrollbars */
+
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
 }
 
-/* ==================== HEADING STYLING ==================== */
-/* Various heading elements throughout the application */
-
-.head-title, 
-.form-section .section-head, 
-.form-dashboard-section .section-head, 
-.comment-box .comment-input-header{
-    color: var(--primary-color); /* Black text for headings */
+*::-webkit-scrollbar-track {
+    background: #f1f5f9;
 }
 
-/* ==================== LINK STYLING ==================== */
-/* Link hover effects */
-
-.list-subject a:hover{
-    color: var(--secondary-color); /* Purple/blue color on hover */
+*::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
 }
 
-/* ==================== REPORT TABLE STYLING ==================== */
-/* Data table headers in reports */
-
-.datatable .dt-header .dt-cell--header .dt-cell__content{
-    background-color: #f4f4f4; /* Light gray background for report headers */
+*::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
 }
 
-/* ==================== SIDEBAR CARD ENHANCEMENT ==================== */
-/* Enhanced styling for sidebar navigation items */
-
-/* Main sidebar container */
-.layout-side-section {
-    padding: 15px 10px !important;    /* Internal spacing */
-    background: transparent !important; /* No background color */
-}
-
-/* Individual sidebar items with gradient background */
-.layout-side-section .sidebar-item,
-.layout-side-section .standard-sidebar-item,
-.layout-side-section .sidebar-section {
-    /* GRADIENT: Blue to light blue horizontal gradient */
-    background: linear-gradient(90deg,rgba(0, 159, 255, 1) 0%, rgba(98, 196, 255, 1) 33%, rgba(98, 196, 255, 1) 100%) !important;
-    border-radius: 8px !important;      /* Rounded corners */
-    margin-bottom: 10px !important;     /* Space between cards */
-    padding: 12px 15px !important;      /* Internal padding */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important; /* Subtle shadow */
-    border: 1px solid #e8ecf1 !important; /* Light gray border */
-    transition: all 0.3s ease !important; /* Smooth hover animation */
-    position: relative !important;      /* For absolute positioned children */
-    overflow: hidden !important;        /* Hide overflow content */
-}
-
-
-
-/* ==================== TARGETED BUTTON STYLING ==================== */
-/* Only style specific buttons - not all buttons globally */
-
-/* Primary action buttons (Save, Submit, etc.) */
-.btn.btn-primary.primary-action,
-.btn.btn-primary[data-label="Save"],
-.primary-action {
-    background: linear-gradient(90deg,rgba(0, 159, 255, 1) 0%, rgba(98, 196, 255, 1) 33%, rgba(98, 196, 255, 1) 100%) !important;
-    color: white !important;
-    border: none !important;
-}
-
-.btn.btn-primary.primary-action:hover,
-.btn.btn-primary[data-label="Save"]:hover,
-.primary-action:hover {
-    background: linear-gradient(90deg,rgba(0, 139, 235, 1) 0%, rgba(78, 176, 235, 1) 33%, rgba(78, 176, 235, 1) 100%) !important;
-}
-
-/* Icon buttons in toolbars */
-.icon-btn,
-.btn.icon-btn {
-    background: linear-gradient(90deg,rgba(0, 159, 255, 1) 0%, rgba(98, 196, 255, 1) 33%, rgba(98, 196, 255, 1) 100%) !important;
-    color: white !important;
-    border: none !important;
-}
-
-.icon-btn:hover,
-.btn.icon-btn:hover {
-    background: linear-gradient(90deg,rgba(0, 139, 235, 1) 0%, rgba(78, 176, 235, 1) 33%, rgba(78, 176, 235, 1) 100%) !important;
-}
-
-/* Secondary buttons (only when they have specific classes) */
-.btn.btn-secondary.btn-default {
-    background: linear-gradient(90deg,rgba(0, 159, 255, 1) 0%, rgba(98, 196, 255, 1) 33%, rgba(98, 196, 255, 1) 100%) !important;
-    color: white !important;
-    border: none !important;
-}
-
-.btn.btn-secondary.btn-default:hover {
-    background: linear-gradient(90deg,rgba(0, 139, 235, 1) 0%, rgba(78, 176, 235, 1) 33%, rgba(78, 176, 235, 1) 100%) !important;
-}
-
-/* Specific page action buttons */
-.page-actions .btn.btn-primary,
-.page-actions .btn.btn-secondary {
-    background: linear-gradient(90deg,rgba(0, 159, 255, 1) 0%, rgba(98, 196, 255, 1) 33%, rgba(98, 196, 255, 1) 100%) !important;
-    color: white !important;
-    border: none !important;
-}
-
-.page-actions .btn.btn-primary:hover,
-.page-actions .btn.btn-secondary:hover {
-    background: linear-gradient(90deg,rgba(0, 139, 235, 1) 0%, rgba(78, 176, 235, 1) 33%, rgba(78, 176, 235, 1) 100%) !important;
-}
-
-/* Form action buttons (Create, Update, etc.) */
-.form-actions .btn.btn-primary {
-    background: linear-gradient(90deg,rgba(0, 159, 255, 1) 0%, rgba(98, 196, 255, 1) 33%, rgba(98, 196, 255, 1) 100%) !important;
-    color: white !important;
-    border: none !important;
-}
-
-.form-actions .btn.btn-primary:hover {
-    background: linear-gradient(90deg,rgba(0, 139, 235, 1) 0%, rgba(78, 176, 235, 1) 33%, rgba(78, 176, 235, 1) 100%) !important;
-}
-
-/* Modal buttons (Save and other modal actions) */
-.btn.btn-modal-primary,
-.btn.btn-modal-secondary {
-    background: linear-gradient(90deg,rgba(0, 159, 255, 1) 0%, rgba(98, 196, 255, 1) 33%, rgba(98, 196, 255, 1) 100%) !important;
-    color: white !important;
-    border: none !important;
-}
-
-.btn.btn-modal-primary:hover,
-.btn.btn-modal-secondary:hover {
-    background: linear-gradient(90deg,rgba(0, 139, 235, 1) 0%, rgba(78, 176, 235, 1) 33%, rgba(78, 176, 235, 1) 100%) !important;
-}
-
-/* Exclude certain buttons from styling */
-/* Cancel buttons, close buttons, etc. keep their original styling */
-.btn-danger,
-.btn-warning,
-.btn-info,
-.btn-light,
-.btn-dark,
-.btn-link,
-.btn-outline-primary,
-.btn-outline-secondary,
-.close,
-.btn-close {
-    background: initial !important;
-    color: initial !important;
-    border: initial !important;
-}
-
-/* Keep dropdown toggles and navigation buttons unchanged */
-.dropdown-toggle,
-.nav-link,
-.navbar-toggler,
-.carousel-control-prev,
-.carousel-control-next {
-    background: initial !important;
-    color: initial !important;
-    border: initial !important;
-}
-
-
-
-
-
-
-
-
-
-
-
-/* HOVER EFFECTS - Currently commented out */
-/* .layout-side-section .sidebar-item:hover,
-.layout-side-section .standard-sidebar-item:hover,
-.layout-side-section .sidebar-section:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-    transform: translateY(-2px) !important;
-    border-color: var(--primary-color) !important;
-} */
-
-/* Sidebar labels inside cards */
-.layout-side-section .sidebar-label {
-    color: var(--primary-color) !important; /* Black text */
-    font-weight: 600 !important;           /* Semi-bold text */
-    font-size: 14px !important;            /* Medium font size */
-    margin-bottom: 8px !important;         /* Space below label */
-    display: flex !important;              /* Flexbox for icon alignment */
-    align-items: center !important;        /* Center items vertically */
-    gap: 8px !important;                   /* Space between icon and text */
-}
-
-/* Sidebar buttons styled as mini cards */
-.list-sidebar-button {
-    background-color: var(--white-color) !important; /* White background */
-    border-radius: 6px !important;        /* Rounded corners */
-    border: 1px solid #e8ecf1 !important; /* Light gray border */
-    margin: 5px 0 !important;             /* Vertical margin */
-    padding: 8px 17px !important;         /* Internal padding (increased from 12px to 17px) */
-    transition: all 0.2s ease !important; /* Smooth hover transition */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important; /* Subtle shadow */
-}
-
-/* Sidebar button hover effect */
-.list-sidebar-button:hover {
-    background-color: rgba(255, 160, 10, 0.1) !important; /* Light orange background */
-    border-color: var(--primary-color) !important;        /* Black border */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12) !important; /* Enhanced shadow */
-}
-
-/* SIDEBAR SECTION CONTAINERS - Currently commented out */
-/* .layout-side-section .sidebar-menu,
-.layout-side-section .list-sidebar {
-    background: var(--white-color) !important;
-    border-radius: 8px !important;
-    padding: 15px !important;
-    margin-bottom: 15px !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-    border: 1px solid #e8ecf1 !important;
-} */
-
-/* Sidebar list items with dividers */
-.layout-side-section .sidebar-menu li,
-.layout-side-section .list-sidebar li {
-    padding: 6px 0 !important;                      /* Vertical padding */
-    border-bottom: 1px solid #f5f6fa !important;    /* Light gray separator line */
-}
-
-/* Remove divider from last item */
-.layout-side-section .sidebar-menu li:last-child,
-.layout-side-section .list-sidebar li:last-child {
-    border-bottom: none !important; /* No border on last item */
-}
-
-/* Links inside sidebar cards */
-.layout-side-section a {
-    color: #333 !important;                    /* Dark gray text */
-    text-decoration: none !important;          /* No underline */
-    transition: color 0.2s ease !important;    /* Smooth color change */
-}
-
-/* Sidebar link hover effect */
-.layout-side-section a:hover {
-    color: var(--primary-color) !important; /* Black text on hover */
-}
-
-/* Active/selected state for sidebar items */
-.layout-side-section .sidebar-item.active,
-.layout-side-section .standard-sidebar-item.active {
-    background: linear-gradient(135deg, var(--primary-color), rgba(255, 160, 10, 0.8)) !important; /* Black to orange gradient */
-    color: var(--white-color) !important;                    /* White text */
-    border-color: var(--primary-color) !important;           /* Black border */
-    box-shadow: 0 4px 15px rgba(255, 160, 10, 0.3) !important; /* Orange shadow */
-}
-
-/* Active sidebar item text colors */
-.layout-side-section .sidebar-item.active .sidebar-label,
-.layout-side-section .standard-sidebar-item.active .sidebar-label {
-    color: var(--white-color) !important; /* White text in active state */
-}
-
-/* Active sidebar item icon colors */
-.layout-side-section .sidebar-item.active svg,
-.layout-side-section .standard-sidebar-item.active svg {
-    stroke: var(--white-color) !important; /* White icon stroke in active state */
-}
-
-/* ==================== DARK THEME OVERRIDES ==================== */
-/* Sidebar appearance in dark mode */
-
-[data-theme="dark"] .layout-side-section .sidebar-item,
-[data-theme="dark"] .layout-side-section .standard-sidebar-item,
-[data-theme="dark"] .layout-side-section .sidebar-section,
-[data-theme="dark"] .layout-side-section .sidebar-menu,
-[data-theme="dark"] .layout-side-section .list-sidebar {
-    background: var(--gray-900) !important;              /* Dark gray background */
-    border-color: #2c3136 !important;                    /* Darker border */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important; /* Stronger shadow */
-}
-
-/* Dark theme hover effects */
-[data-theme="dark"] .layout-side-section .sidebar-item:hover,
-[data-theme="dark"] .layout-side-section .standard-sidebar-item:hover,
-[data-theme="dark"] .layout-side-section .sidebar-section:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important; /* Enhanced shadow */
-    border-color: var(--primary-color) !important;        /* Black border on hover */
-}
-
-/* Dark theme button styling */
-[data-theme="dark"] .list-sidebar-button {
-    background-color: var(--gray-900) !important;        /* Dark background */
-    border-color: #2c3136 !important;                    /* Dark border */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important; /* Dark shadow */
+/* Firefox scrollbars */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
 /* Mobile and tablet adjustments */
 
-@media (max-width: 768px) {
-    /* Sidebar container on mobile */
+@media (max-width: 991px) {
+    /* Mobile sidebar - hidden by default, overlay when visible */
     .layout-side-section {
-        padding: 10px 5px !important; /* Reduced padding for mobile */
+        position: fixed !important;
+        top: 0 !important;
+        left: -100% !important;
+        width: 280px !important;
+        height: 100vh !important;
+        z-index: 1050 !important;
+        transition: left 0.3s ease !important;
+        padding: 80px 15px 20px 15px !important; /* Extra top padding for navbar */
     }
-    
-    /* Sidebar items on mobile */
-    .layout-side-section .sidebar-item,
-    .layout-side-section .standard-sidebar-item,
-    .layout-side-section .sidebar-section {
-        padding: 10px 12px !important;   /* Reduced padding */
-        margin-bottom: 8px !important;   /* Reduced margin */
+   
+    /* When sidebar is open on mobile */
+    .layout-side-section.show,
+    .layout-side-section.sidebar-open {
+        left: 0 !important;
     }
+   
+    /* Main content takes full width on mobile */
+    .layout-main-section {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 20px 15px !important;
+    }
+   
+    /* Add overlay when sidebar is open */
+    .layout-side-section.show::before,
+    .layout-side-section.sidebar-open::before {
+        content: "" !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 280px !important;
+        width: calc(100vw - 280px) !important;
+        height: 100vh !important;
+        background: rgba(0, 0, 0, 0.5) !important;
+        z-index: -1 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Tablet adjustments */
+    .layout-main-section .widget {
+        padding: 20px !important;
+        margin-bottom: 20px !important;
+    }
+   
+    .layout-main-section h1 {
+        font-size: 24px !important;
+    }
+   
+    /* Sidebar items on tablet */
+    .layout-side-section .sidebar-menu li,
+    .layout-side-section .standard-sidebar li,
+    .standard-sidebar-item {
+        padding: 10px 12px !important;
+        margin-bottom: 6px !important;
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Phone adjustments */
+    .navbar .navbar-brand {
+        width: 120px !important;
+        height: 30px !important;
+    }
+   
+    /* Reduce sidebar width on very small screens */
+    .layout-side-section {
+        width: 260px !important;
+    }
+   
+    .layout-side-section.show::before,
+    .layout-side-section.sidebar-open::before {
+        left: 260px !important;
+        width: calc(100vw - 260px) !important;
+    }
+   
+    /* Smaller sidebar items */
+    .layout-side-section .sidebar-menu li,
+    .layout-side-section .standard-sidebar li,
+    .standard-sidebar-item {
+        padding: 8px 10px !important;
+        margin-bottom: 4px !important;
+        font-size: 12px !important;
+    }
+   
+    /* Smaller navigation icons */
+    .layout-side-section svg,
+    .sidebar-item-icon,
+    .octicon {
+        width: 16px !important;
+        height: 16px !important;
+        margin-right: 6px !important;
+    }
+   
+    /* Main content padding */
+    .layout-main-section {
+        padding: 15px 10px !important;
+    }
+   
+    /* Widget adjustments */
+    .layout-main-section .widget {
+        padding: 15px !important;
+        margin-bottom: 15px !important;
+        border-radius: 8px !important;
+    }
+   
+    /* Revenue numbers smaller on phone */
+    .layout-main-section .widget .widget-body .number {
+        font-size: 24px !important;
+    }
+   
+    /* Widget headers smaller */
+    .layout-main-section .widget .widget-head,
+    .layout-main-section .widget .widget-title {
+        font-size: 16px !important;
+        margin-bottom: 15px !important;
+    }
+}
+
+/* ==================== MOBILE SIDEBAR TOGGLE ==================== */
+/* Ensure mobile sidebar toggle button works properly */
+
+@media (max-width: 991px) {
+    /* Mobile hamburger menu button */
+    .navbar-toggler,
+    .sidebar-toggle-btn {
+        display: block !important;
+        color: #374151 !important;
+        border: none !important;
+        background: transparent !important;
+        font-size: 18px !important;
+        padding: 5px 8px !important;
+    }
+   
+    /* Hide desktop sidebar toggle when not needed */
+    .layout-side-section .sidebar-toggle {
+        display: none !important;
+    }
+}
+
+/* ==================== DARK THEME OVERRIDES ==================== */
+/* Dark mode support (optional) */
+
+[data-theme="dark"] .layout-main-section {
+    background: #111827 !important;
+}
+
+[data-theme="dark"] .layout-main-section .widget {
+    background: #1f2937 !important;
+    border-color: #374151 !important;
+}
+
+[data-theme="dark"] .layout-main-section .widget .widget-head,
+[data-theme="dark"] .layout-main-section h1 {
+    color: white !important;
+}
+
+[data-theme="dark"] .layout-main-section .widget .widget-body {
+    color: #d1d5db !important;
 }
 
 /* ==================== ANIMATIONS ==================== */
-/* Smooth entrance animation for sidebar cards */
+/* Smooth entrance animations */
 
-@keyframes cardFadeIn {
+@keyframes slideInFromLeft {
     from {
-        opacity: 0;                    /* Start invisible */
-        transform: translateY(10px);   /* Start 10px below final position */
+        opacity: 0;
+        transform: translateX(-30px);
     }
     to {
-        opacity: 1;                    /* End fully visible */
-        transform: translateY(0);      /* End at final position */
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
-/* Apply fade-in animation to sidebar items */
-.layout-side-section .sidebar-item,
-.layout-side-section .standard-sidebar-item,
-.layout-side-section .sidebar-section {
-    animation: cardFadeIn 0.3s ease-out !important; /* 0.3 second smooth entrance */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+.layout-side-section .sidebar-item {
+    animation: slideInFromLeft 0.4s ease-out !important;
+}
+
+.layout-main-section .widget {
+    animation: fadeInUp 0.5s ease-out !important;
+}
+
+/* ==================== GLASSMORPHISM ACTIVE INDICATOR ==================== */
+/* Blue glassmorphism indicator matching Image 1 */
+
+.glassmorphism-indicator {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    background: rgba(59, 130, 246, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 25px !important;
+    padding: 8px 20px !important;
+    color: white !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    z-index: 1000 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    animation: fadeInUp 0.6s ease-out !important;
+}
+
+.glassmorphism-indicator::before {
+    content: "✨";
+    font-size: 16px;
+}
+
+/* ==================== UTILITIES ==================== */
+/* Helper classes */
+
+.text-primary {
+    color: #3b82f6 !important;
+}
+
+.text-secondary {
+    color: #6b7280 !important;
+}
+
+.bg-primary {
+    background-color: #3b82f6 !important;
+}
+
+.rounded {
+    border-radius: 8px !important;
+}
+
+.shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ==================== END OF STYLING ==================== */
 
 
+/* ==================== REMOVE BOTTOM GAP: sidebar fits content but still scrolls if needed ==================== */
+/* Sidebar container smaller */
+.col-lg-2.layout-side-section,
+.col-lg-2.layout-side-section .list-sidebar.overlay-sidebar,
+.list-sidebar.overlay-sidebar {
+    min-height: 0 !important;
+    height: auto !important;
+    align-self: flex-start !important;
+    max-height: 75vh !important;   /* reduced from 80vh → 70vh */
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+    padding: 8px !important;       /* added padding for spacing */
+    padding-bottom: 0 !important;
+    border-radius: 15px !important;
+}
 
+/* Remove bottom margin/padding from inner elements */
+.list-sidebar.overlay-sidebar .sidebar-menu,
+.list-sidebar.overlay-sidebar .standard-sidebar,
+.list-sidebar.overlay-sidebar .sidebar-label,
+.list-sidebar.overlay-sidebar .standard-sidebar-item {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
 
-
-/* ==================== MAIN SECTION WIDGET STYLING ==================== */
-/* Styling for the main content area widgets (dashboard cards) */
-
-/* ==================== ONBOARDING STEPS STYLING ==================== */
-/* Target only onboarding steps specifically */
-
-/* Onboarding step containers - better spacing and borders */
-.onboarding-steps-wrapper .onboarding-step {
+/* Hide webkit scrollbars */
+.col-lg-2.layout-side-section::-webkit-scrollbar,
+.list-sidebar.overlay-sidebar::-webkit-scrollbar,
+.list-sidebar.overlay-sidebar *::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
     background: transparent !important;
-    border: 1px solid white !important;
-    color: white !important;
-    margin-bottom: 15px !important; /* Better vertical spacing */
-    padding: 15px 20px !important; /* Better horizontal spacing */
-    border-radius: 8px !important; /* Rounded corners */
 }
 
-.onboarding-steps-wrapper .onboarding-step:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+/* Hide JS-injected rails/thumbs */
+.list-sidebar.overlay-sidebar .ps__rail-y,
+.list-sidebar.overlay-sidebar .ps__rail-y .ps__thumb-y,
+.list-sidebar.overlay-sidebar .simplebar-track,
+.list-sidebar.overlay-sidebar .simplebar-scrollbar,
+.list-sidebar.overlay-sidebar .os-scrollbar-vertical,
+.list-sidebar.overlay-sidebar .os-scrollbar-track,
+.list-sidebar.overlay-sidebar .os-scrollbar-handle,
+.list-sidebar.overlay-sidebar .nano-scrollbar,
+.list-sidebar.overlay-sidebar .scrollbar-track,
+.list-sidebar.overlay-sidebar .scrollbar-thumb,
+.list-sidebar.overlay-sidebar .mCSB_scrollTools,
+.list-sidebar.overlay-sidebar .close-sidebar {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
-/* Onboarding step icons - white color for checkmarks */
-.onboarding-steps-wrapper .step-icon,
-.onboarding-steps-wrapper .step-icon svg,
-.onboarding-steps-wrapper .es-icon {
-    color: white !important;
-    stroke: white !important;
-    fill: white !important;
+/* Sidebar items compact size */
+/* Ultra-compact sidebar items */
+.list-sidebar.overlay-sidebar .standard-sidebar-item,
+.list-sidebar.overlay-sidebar .sidebar-item,
+.list-sidebar .module-sidebar-item {
+    font-size: 8px !important;       /* very small text */
+    padding: 2px 5px !important;      /* minimal padding */
+    margin: 1px 0 !important;         /* tight spacing */
+    line-height: 1 !important;        /* no extra vertical space */
+    border-radius: 4px !important;    /* smaller rounde corners */
 }
 
-/* Onboarding step text */
-.onboarding-steps-wrapper .step-text {
-    color: white !important;
-    margin-left: 15px !important; /* Better spacing from icon */
+/* Ultra-compact icons */
+.list-sidebar.overlay-sidebar .sidebar-item .icon,
+.list-sidebar.overlay-sidebar .standard-sidebar-item .icon {
+    font-size: 8px !important;       /* shrink icons */
+    margin-right: 3px !important;     /* tighter icon gap */
+    min-width: 10px !important;       /* very narrow */
 }
 
-/* Skip buttons in onboarding */
-.onboarding-steps-wrapper .step-skip {
-    color: rgba(255, 255, 255, 0.8) !important;
+
+
+/* Hover effect */
+.list-sidebar.overlay-sidebar .standard-sidebar-item:hover,
+.list-sidebar.overlay-sidebar .sidebar-item:hover,
+.list-sidebar .module-sidebar-item:hover {
+    background: #2563eb !important;    /* brighter hover color */
+    color: #fff !important;
+    transform: scale(1.02);
+    border-radius: 10px !important;
+}
+
+
+
+
+
+
+
+/* ==================== FILTER SIDEBAR COMPACT GLASS THEME ==================== */
+
+
+
+/* ==================== SIDEBAR WRAPPER ==================== */
+/* ==================== SIDEBAR WRAPPER ==================== */
+/* ================== COMMON SIDEBAR BOX STYLE ================== */
+/* ================== CLEAN MINIMAL SIDEBAR ================== */
+
+/* Sidebar        wrapper */
+/* ================== CLEAN MINIMAL SIDEBAR ================== */
+.sidebar-section.filter-section,
+.sidebar-section.save-filter-section {
+    background: transparent !important;
     border: none !important;
-    background: transparent !important;
+    padding: 0 0 12px 0 !important;
+    width: 180px !important;
+    max-height: 20vh !important;  /* smaller sidebar height */
+    overflow-y: auto !important;
+    box-shadow: none !important;
+    margin-bottom: 16px !important;
+}
+
+/* Hide scrollbar */
+.sidebar-section.filter-section::-webkit-scrollbar,
+.sidebar-section.save-filter-section::-webkit-scrollbar {
+    display: none !important;
+}
+.sidebar-section.filter-section,
+.sidebar-section.save-filter-section {
+    scrollbar-width: none !important;
+}
+
+/* Labels */
+.sidebar-section.filter-section .sidebar-label,
+.sidebar-section.save-filter-section .sidebar-label {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    margin-bottom: 6px !important;
+    text-transform: none !important;
+}
+
+/* Inputs & selects */
+.sidebar-section.filter-section .form-control,
+.sidebar-section.save-filter-section .form-control,
+.sidebar-section.filter-section select,
+.sidebar-section.save-filter-section select,
+.sidebar-section.filter-section input[type="text"],
+.sidebar-section.save-filter-section input[type="text"] {
+    background: #f3f4f6 !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    padding: 6px 8px !important;   /* tighter padding */
+    font-size: 12px !important;    /* smaller font */
+    color: #111827 !important;
+    margin-bottom: 8px !important;
+}
+
+/* Focus */
+.sidebar-section.filter-section .form-control:focus,
+.sidebar-section.save-filter-section .form-control:focus {
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 2px rgba(37,99,235,0.2) !important;
+    background: #fff !important;
+}
+
+/* Buttons */
+.sidebar-section.filter-section .btn,
+.sidebar-section.save-filter-section .btn,
+.sidebar-section.filter-section button,
+.sidebar-section.save-filter-section button {
+    background: #f3f4f6 !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    padding: 5px 8px !important;   /* smaller */
+    font-size: 12px !important;    /* smaller */
+    font-weight: 500 !important;
+    color: #111827 !important;
+    margin-bottom: 6px !important;
+    width: 100% !important;
+}
+.sidebar-section.filter-section .btn:hover,
+.sidebar-section.save-filter-section .btn:hover {
+    background: #2563eb !important;
+    color: #fff !important;
+    border-color: #2563eb !important;
+}
+
+/* Dropdowns */
+/* ================== DROPDOWN POPUP ================== */
+/* ====== SIDEBAR GROUP-BY POPUP (compact, clean, fully visible) ====== */
+/* ====== FIXED POSITIONING FOR GROUP-BY POPUP ====== */
+.sidebar-section .dropdown-menu.group-by-dropdown,
+.dropdown-menu.group-by-dropdown.show {
+  position: absolute !important;   /* stays anchored to parent field */
+  top: calc(100% + 6px) !important; /* small gap below trigger */
+  left: 0 !important;
+  right: auto !important;
+  margin-top: 4px !important;
+
+  /* prevent cursor-based movement */
+  transform: none !important;
+  pointer-events: auto !important;
+
+  /* size & style (same as before) */
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  max-height: 190px !important;
+  overflow-y: auto !important;
+  background: #ffffff !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 18px rgba(0,0,0,.12) !important;
+  z-index: 2000 !important;
 }
 
 
-
-
-/* Base styling for ALL main section widgets */
-.layout-main-section .widget,
-.layout-main-section .onboarding-widget-box,
-.layout-main-section [data-widget-name] {
-    position: relative !important;      /* For absolute positioned children */
-    overflow: hidden !important;        /* Hide overflow content */
-    border-radius: 12px !important;     /* Rounded corners */
-    margin-bottom: 20px !important;     /* Space between widgets */
-    transition: all 0.3s ease !important; /* Smooth hover effects */
+/* search box inside the popup (if present) */
+.dropdown-menu.group-by-dropdown .form-control {
+  font-size: 12px !important;
+  padding: 6px 8px !important;
+  background: #f9fafb !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 6px !important;
+  color: #111827 !important;
+  margin: 16px 18px !important;
+}
+.dropdown-menu.group-by-dropdown .form-control:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 2px rgba(37,99,235,.15) !important;
+  background: #ffffff !important;
 }
 
-/* --------------------------------------------------------
-   WIDGET #1 - First Widget (Your Shortcuts) - BLUE THEME
---------------------------------------------------------- */
-.layout-main-section .widget:nth-of-type(1),
-.layout-main-section [data-widget-name]:nth-of-type(1) {
-    background: #009fff !important;                        /* Bright blue background */
-    border: none !important;                               /* No border */
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important; /* Blue-tinted shadow */
+/* items */
+.dropdown-menu.group-by-dropdown .dropdown-item {
+  font-size: 12px !important;
+  padding: 6px 10px !important;
+  color: #374151 !important;
+  border-radius: 4px !important;
+}
+.dropdown-menu.group-by-dropdown .dropdown-item:hover,
+.dropdown-menu.group-by-dropdown .dropdown-item:focus {
+  background: #2563eb !important;
+  color: #ffffff !important;
 }
 
-/* First widget headings - WHITE TEXT */
-.layout-main-section .widget:nth-of-type(1) .widget-head,
-.layout-main-section .widget:nth-of-type(1) .widget-title,
-.layout-main-section .widget:nth-of-type(1) .widget-subtitle,
-.layout-main-section [data-widget-name]:nth-of-type(1) h3,
-.layout-main-section [data-widget-name]:nth-of-type(1) .head-title {
-    color: white !important;         /* White text for contrast against blue */
-    font-weight: 600 !important;     /* Semi-bold text */
+/* empty state like "No filters found" */
+.dropdown-menu.group-by-dropdown .empty-state,
+.dropdown-menu.group-by-dropdown .no-results,
+.dropdown-menu.group-by-dropdown .group-by-empty {
+  font-size: 12px !important;
+  color: #6b7280 !important;
+  padding: 8px 10px !important;
 }
 
-/* First widget links - WHITE TEXT with transparency */
-.layout-main-section .widget:nth-of-type(1) .widget-body a,
-.layout-main-section [data-widget-name]:nth-of-type(1) a {
-    color: rgba(255, 255, 255, 0.9) !important; /* 90% opacity white */
-    transition: all 0.2s ease !important;       /* Smooth hover transition */
+
+/* tags */
+
+
+.dropdown-menu.group-by-dropdown.show,
+.dropdown-menu.list-stats-dropdown.show {
+  position: absolute !important;     /* lock to parent field */
+  top: calc(100% + 6px) !important;  /* small gap below trigger */
+  left: 0 !important;
+  right: auto !important;
+  margin-top: 4px !important;
+
+  /* prevent cursor-follow movement */
+  transform: none !important;
+  pointer-events: auto !important;
+
+  /* size & style */
+  min-width: 160px !important;       /* compact popup */
+  max-width: 220px !important;       
+  max-height: 190px !important;      /* prevent oversized popup */
+  overflow-y: auto !important;
+
+  background: #ffffff !important;    /* clean white */
+  border: 1px solid #d1d5db !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 18px rgba(0,0,0,.12) !important;
+  z-index: 2000 !important;
 }
 
-/* First widget link hover effect */
-.layout-main-section .widget:nth-of-type(1) .widget-body a:hover,
-.layout-main-section [data-widget-name]:nth-of-type(1) a:hover {
-    color: white !important;                           /* Full opacity white */
-    background: rgba(255, 255, 255, 0.1) !important;   /* Light white background */
-    border-radius: 6px !important;                     /* Rounded hover area */
-    padding: 6px 10px !important;                      /* Padding around hover area */
+/* Dropdown items inside both popups */
+.dropdown-menu.group-by-dropdown.show .dropdown-item,
+.dropdown-menu.list-stats-dropdown.show .dropdown-item {
+  font-size: 12px !important;
+  padding: 6px 10px !important;
+  color: #374151 !important;
+  transition: background 0.2s ease-in-out;
 }
 
-/* --------------------------------------------------------
-   WIDGET #2 - Second Widget (Reports & Masters) - MISSING BACKGROUND
-   NOTE: This section is missing background color - causing black text
---------------------------------------------------------- */
-.layout-main-section .widget:nth-of-type(2),
-.layout-main-section [data-widget-name]:nth-of-type(2) {
-    /* MISSING: background color declaration */
-    border: none !important;                               /* No border */
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important; /* Green-tinted shadow (inconsistent) */
+.dropdown-menu.group-by-dropdown.show .dropdown-item:hover,
+.dropdown-menu.list-stats-dropdown.show .dropdown-item:hover {
+  background: #2563eb !important;
+  color: #fff !important;
 }
 
-/* Second widget headings - WHITE TEXT (may appear black without background) */
-.layout-main-section .widget:nth-of-type(2) .widget-head,
-.layout-main-section .widget:nth-of-type(2) .widget-title,
-.layout-main-section .widget:nth-of-type(2) .widget-subtitle,
-.layout-main-section [data-widget-name]:nth-of-type(2) h3,
-.layout-main-section [data-widget-name]:nth-of-type(2) .head-title {
-    color: white !important;         /* White text (but may appear black on white background) */
-    font-weight: 600 !important;     /* Semi-bold text */
+
+/* hide */
+
+
+
+
+
+
+
+
+/* ====== FIXED POSITIONING FOR GROUP-BY + LIST-STATS POPUPS ====== */
+/* ===================== FILTER NAME INPUT ===================== */
+.input-with-feedback.form-control.input-xs {
+    background: #f3f4f6 !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+    color: #111827 !important;
+    width: 100% !important;
+    margin-bottom: 8px !important;
+}
+.input-with-feedback.form-control.input-xs:focus {
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 2px rgba(37,99,235,0.15) !important;
+    background: #ffffff !important;
 }
 
-/* Second widget links - WHITE TEXT */
-.layout-main-section .widget:nth-of-type(2) .widget-body a,
-.layout-main-section [data-widget-name]:nth-of-type(2) a {
-    color: white !important; /* Forced white text */
+/* ===================== LAYOUT: STACK INPUT + ACTION ===================== */
+.save-filter-section .list-filters.list-link {
+    display: flex !important;
+    flex-direction: column !important;   /* stack vertically */
+    align-items: flex-start !important;
+    gap: 8px !important;
 }
 
-/* Second widget link hover effect */
-.layout-main-section .widget:nth-of-type(2) .widget-body a:hover,
-.layout-main-section [data-widget-name]:nth-of-type(2) a:hover {
-    color: white !important;                           /* White text */
-    background: rgba(255, 255, 255, 0.1) !important;   /* Light white background */
-    border-radius: 6px !important;                     /* Rounded hover area */
-    padding: 6px 10px !important;                      /* Padding around hover area */
+/* ===================== HIDE SAVED BUTTON ===================== */
+.save-filter-section .sidebar-action {
+    display: block !important;
+    margin-top: 6px !important;
+    width: 100% !important;
+}
+.save-filter-section .sidebar-action .btn,
+.save-filter-section .sidebar-action button {
+    background: #f3f4f6 !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+    color: #111827 !important;
+    width: auto !important;
+    text-align: center !important;
+}
+.save-filter-section .sidebar-action .btn:hover {
+    background: #2563eb !important;
+    color: #fff !important;
 }
 
-/* --------------------------------------------------------
-   WIDGET #3 - Third Widget (Data Import & Settings) - MISSING BACKGROUND
-   NOTE: This section is also missing background color
---------------------------------------------------------- */
-.layout-main-section .widget:nth-of-type(3),
-.layout-main-section [data-widget-name]:nth-of-type(3) {
-    /* MISSING: background color declaration */
-    border: none !important;                               /* No border */
-    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3) !important; /* Orange-tinted shadow (inconsistent) */
+
+/* space removing */
+
+.widget.spacer {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* Third widget headings - WHITE TEXT (may appear black without background) */
-.layout-main-section .widget:nth-of-type(3) .widget-head,
-.layout-main-section .widget:nth-of-type(3) .widget-title,
-.layout-main-section .widget:nth-of-type(3) .widget-subtitle,
-.layout-main-section [data-widget-name]:nth-of-type(3) h3,
-.layout-main-section [data-widget-name]:nth-of-type(3) .head-title {
-    color: white !important;         /* White text */
-    font-weight: 600 !important;     /* Semi-bold text */
-}
+/* space removing */
 
-/* Third widget links - WHITE TEXT */
-.layout-main-section .widget:nth-of-type(3) .widget-body a,
-.layout-main-section [data-widget-name]:nth-of-type(3) a {
-    color: white !important; /* Forced white text */
-}
 
-/* Third widget link hover effect */
-.layout-main-section .widget:nth-of-type(3) .widget-body a:hover,
-.layout-main-section [data-widget-name]:nth-of-type(3) a:hover {
-    color: white !important;                           /* White text */
-    background: rgba(255, 255, 255, 0.1) !important;   /* Light white background */
-    border-radius: 6px !important;                     /* Rounded hover area */
-    padding: 6px 10px !important;                      /* Padding around hover area */
-}
+/* shortcuts conainer */
 
-/* --------------------------------------------------------
-   WIDGET #4 - Fourth Widget (Other Section) - BLUE THEME
---------------------------------------------------------- */
-.layout-main-section .widget:nth-of-type(4),
-.layout-main-section [data-widget-name]:nth-of-type(4) {
-    background: white !important;                        /* Bright blue background */
-    border: none !important;                               /* No border */
-    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3) !important; /* Purple-tinted shadow (inconsistent with blue background) */
-}
 
-/* Fourth widget headings - WHITE TEXT */
-.layout-main-section .widget:nth-of-type(4) .widget-head,
-.layout-main-section .widget:nth-of-type(4) .widget-title,
-.layout-main-section .widget:nth-of-type(4) .widget-subtitle,
-.layout-main-section [data-widget-name]:nth-of-type(4) h3,
-.layout-main-section [data-widget-name]:nth-of-type(4) .head-title {
-    color: white !important;         /* White text for contrast */
-    font-weight: 600 !important;     /* Semi-bold text */
-}
 
-/* Fourth widget links - WHITE TEXT with transparency */
-.layout-main-section .widget:nth-of-type(4) .widget-body a,
-.layout-main-section [data-widget-name]:nth-of-type(4) a {
-    color: rgba(255, 255, 255, 0.9) !important; /* 90% opacity white */
-}
 
-/* Fourth widget link hover effect */
-.layout-main-section .widget:nth-of-type(4) .widget-body a:hover,
-.layout-main-section [data-widget-name]:nth-of-type(4) a:hover {
-    color: white !important;                           /* Full opacity white */
-    background: rgba(255, 255, 255, 0.1) !important;   /* Light white background */
-    border-radius: 6px !important;                     /* Rounded hover area */
-    padding: 6px 10px !important;                      /* Padding around hover area */
-}
 
-/* --------------------------------------------------------
-   GLOBAL WIDGET HOVER EFFECTS
-   Applied to ALL widgets when hovered
---------------------------------------------------------- */
-.layout-main-section .widget:hover,
-.layout-main-section [data-widget-name]:hover {
-    transform: translateY(-3px) !important;            /* Lift widget 3px up */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important; /* Enhanced shadow */
-}
 
-/* --------------------------------------------------------
-   WIDGET CONTENT STYLING
-   Headers and sections within widgets
---------------------------------------------------------- */
-
-/* Column headers inside widgets (Accounting, Stock, CRM, etc.) */
-.layout-main-section .widget .widget-body h4,
-.layout-main-section .widget .widget-body h5,
-.layout-main-section .ce-block h3,
-.layout-main-section .form-section .section-head {
-    color: rgba(255, 255, 255, 0.95) !important;       /* Nearly opaque white text */
-    font-weight: 700 !important;                       /* Bold text for emphasis */
-    font-size: 16px !important;                        /* Medium font size */
-    margin-bottom: 12px !important;                    /* Space below header */
-    padding-bottom: 8px !important;                    /* Space above bottom border */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important; /* Semi-transparent white underline */
-}
-
-/* --------------------------------------------------------
-   WIDGET LINK STYLING
-   Individual links and list items within widgets
---------------------------------------------------------- */
-
-/* Links and list items with separator lines */
-.layout-main-section .widget .widget-body ul li,
-.layout-main-section .widget .widget-body div a {
-    padding: 8px 0 !important;                         /* Vertical padding for clickable area */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; /* Very light separator line */
-    display: block !important;                         /* Full width clickable area */
-}
-
-/* Remove separator line from the last item in lists */
-.layout-main-section .widget .widget-body ul li:last-child {
-    border-bottom: none !important; /* No border on last item to avoid double line */
-}
-
-/* --------------------------------------------------------
-   DARK THEME ADJUSTMENTS FOR MAIN WIDGETS
-   Enhanced shadows and effects for dark mode
---------------------------------------------------------- */
-
-[data-theme="dark"] .layout-main-section .widget:hover,
-[data-theme="dark"] .layout-main-section [data-widget-name]:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5) !important; /* Darker, stronger shadow in dark mode */
-}
-
-/* --------------------------------------------------------
-   FALLBACK SELECTORS
-   Alternative targeting methods in case nth-of-type fails
-   These target widgets by their data attributes or content
---------------------------------------------------------- */
-
-/* Target widgets by data attribute names */
-.widget[data-widget-name="Your Shortcuts"],
-.onboarding-widget-box[onboarding_name="Home"] .widget {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important; /* Blue gradient fallback */
-    color: white !important;                               /* White text */
-    border: none !important;                               /* No border */
-    border-radius: 12px !important;                        /* Rounded corners */
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important; /* Blue-tinted shadow */
-}
-
-/* Target widgets by text content (CSS :contains pseudo-selector) */
-.layout-main-section div:contains("Your Shortcuts"),
-.layout-main-section div:contains("Reports & Masters"),
-.layout-main-section div:contains("Data Import and Settings") {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important; /* Blue gradient fallback */
-    color: white !important;                               /* White text */
-    border-radius: 12px !important;                        /* Rounded corners */
-    padding: 20px !important;                              /* Internal spacing */
-    margin-bottom: 20px !important;                        /* Space between widgets */
-}
-
-/* ==================== END OF MAIN SECTION STYLING ====================
-
+/* shoretcut container */
