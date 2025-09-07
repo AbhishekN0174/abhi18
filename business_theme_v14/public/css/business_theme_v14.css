@@ -1128,3 +1128,14 @@ header .form-control:focus {
 
 
 /* shoretcut container */
+
+.ce-header {
+    background-color: #your-color-code !important;
+    color: #text-color !important;
+}
+
+/* Example with specific colors */
+.ce-header {
+    background-color: #3498db !important;  /* Blue background */
+    color: white !important;                /* White text */
+}
